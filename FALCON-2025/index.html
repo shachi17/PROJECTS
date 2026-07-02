@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FALCON 2025 — RC Aircraft Journey</title>
+<style>
+:root{
+  --sky1:#0b1a2b; --sky2:#16324a; --olive:#5a6e3f; --olive2:#8a9a5b;
+  --khaki:#c9c194; --amber:#e8a33d; --cream:#f3ecd8; --line:rgba(243,236,216,.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI',system-ui,sans-serif; background:var(--sky1); color:var(--cream);
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:#111}
+
+/* hero */
+header.hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,var(--sky2),var(--sky1) 70%)}
+.plane-trail{position:absolute;width:110px;top:28%;left:-14%;animation:fly 11s linear infinite;filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
+.plane-trail::after{content:'';position:absolute;top:50%;right:100%;width:140px;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(243,236,216,.5));transform:translateY(-50%)}
+@keyframes fly{to{left:110%;top:16%}}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;letter-spacing:6px;color:var(--cream);
+  text-shadow:0 0 30px rgba(232,163,61,.4)}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p.sub{margin-top:10px;color:var(--khaki);letter-spacing:3px;font-size:.95rem;text-transform:uppercase}
+.badge-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;justify-content:center;z-index:2}
+.badge{background:rgba(243,236,216,.06);border:1px solid var(--line);border-radius:10px;
+  padding:12px 20px;min-width:130px}
+.badge b{display:block;color:var(--amber);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
+.badge span{font-size:.95rem}
+.scroll-cue{position:absolute;bottom:26px;color:var(--khaki);font-size:.8rem;letter-spacing:2px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* sections */
+section{padding:80px 8% ;max-width:1100px;margin:0 auto;position:relative}
+.section-title{font-size:2rem;color:var(--amber);letter-spacing:1px;margin-bottom:8px;
+  display:flex;align-items:center;gap:12px}
+.section-title::before{content:'✈';font-size:1.3rem}
+.section-sub{color:var(--khaki);font-style:italic;margin-bottom:30px;font-size:.95rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--olive2),transparent);margin:60px 0}
+p{line-height:1.75;color:#e6e0cc;margin-bottom:14px;font-size:1rem}
+.quote{border-left:3px solid var(--amber);padding:14px 22px;margin:26px 0;font-style:italic;
+  color:var(--cream);background:rgba(232,163,61,.06);border-radius:0 8px 8px 0}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* photo placeholders */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.photo{aspect-ratio:4/3;border-radius:10px;border:1px solid var(--line);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--olive),#3d4a29)}
+.photo::after{content:attr(data-cap);position:absolute;bottom:0;left:0;right:0;padding:8px 10px;
+  font-size:.72rem;background:rgba(0,0,0,.55);color:var(--khaki)}
+.photo .icon{font-size:2rem;opacity:.85}
+.photo.wide{grid-column:span 2}
+
+/* kit grid */
+.kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:20px}
+.kit-card{background:rgba(243,236,216,.05);border:1px solid var(--line);border-radius:12px;padding:18px}
+.kit-card h4{color:var(--amber);margin-bottom:8px;font-size:1rem}
+.kit-card ul{margin-left:18px;color:#e6e0cc;font-size:.92rem;line-height:1.7}
+
+/* timeline */
+.timeline{position:relative;margin-top:20px;padding-left:26px;border-left:2px dashed var(--olive2)}
+.tl-item{position:relative;margin-bottom:34px}
+.tl-item::before{content:'';position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;
+  background:var(--amber);box-shadow:0 0 0 4px rgba(232,163,61,.2)}
+.tl-item h4{color:var(--amber);margin-bottom:6px}
+
+/* stats */
+.stat-row{display:flex;gap:20px;flex-wrap:wrap;margin:30px 0}
+.stat{flex:1;min-width:140px;text-align:center;background:rgba(243,236,216,.05);
+  border:1px solid var(--line);border-radius:12px;padding:20px}
+.stat b{display:block;font-size:1.8rem;color:var(--amber)}
+.stat span{font-size:.8rem;color:var(--khaki)}
+
+/* insert note */
+.insert-note{color:var(--khaki);font-weight:700;font-size:.85rem;margin-bottom:14px;letter-spacing:.5px}
+
+footer{text-align:center;padding:50px 5% 70px;color:var(--khaki);font-size:.85rem;
+  border-top:1px solid var(--line);margin-top:40px}
+footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem}
+
+@media(max-width:700px){
+  nav ul{display:none}
+  .photo.wide{grid-column:span 1}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="plane-trail" viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="100" cy="45" rx="95" ry="4" fill="#000" opacity=".15"/>
+    <path d="M20 46 L150 40 Q170 39 185 45 Q170 51 150 50 L20 46Z" fill="#cfd6da"/>
+    <path d="M20 46 L150 40 Q170 39 185 45 Q170 51 150 50 L20 46Z" fill="url(#body)"/>
+    <path d="M70 42 L60 12 L72 12 L92 40Z" fill="#b9c2c7"/>
+    <path d="M70 50 L60 78 L72 78 L92 51Z" fill="#a3adb3"/>
+    <path d="M148 41 L165 30 L170 31 L156 43Z" fill="#9aa4aa"/>
+    <path d="M148 49 L165 60 L170 59 L156 47Z" fill="#9aa4aa"/>
+    <path d="M18 44 L2 34 L2 40 L16 47Z" fill="#8b959b"/>
+    <path d="M18 48 L2 56 L2 50 L16 47Z" fill="#8b959b"/>
+    <circle cx="182" cy="45" r="3" fill="#3a3f42"/>
+    <ellipse cx="176" cy="45" rx="9" ry="9" fill="#d4dade" opacity=".5"/>
+    <rect x="95" y="41" width="18" height="8" rx="2" fill="#7c4a2d"/>
+    <defs><linearGradient id="body" x1="20" y1="40" x2="20" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e9edef"/><stop offset="1" stop-color="#aeb8bd"/>
+    </linearGradient></defs>
+  </svg>
+  <h1>Event <em>FALCON</em> 2025</h1>
+  <p class="sub">Avishkar · MNNIT Allahabad — An RC Aircraft Journey</p>
+  <div class="badge-row">
+    <div class="badge"><b>Venue</b><span>Avishkar, MNNIT Allahabad</span></div>
+    <div class="badge"><b>Role</b><span>Assembly, Electronics & Simulation</span></div>
+    <div class="badge"><b>Team</b><span>7 Members</span></div>
+    <div class="badge"><b>Duration</b><span>~1 Week</span></div>
+  </div>
+
+</header>
+
+<section id="overview" class="reveal">
+ <img src="D:\RESUME\FALCON-2025\Gallery\Front cover.jpg"  width="600" height="300" alt="front cover of the project">
+ <img src="D:\RESUME\FALCON-2025\Gallery\the plane.png"  width="300" height="300" alt="plane">      
+  <div class="section-title">Project Overview</div>
+  <div class="section-sub">
+<div class="section-sub">Building My First RC Aircraft for Avishkar, MNNIT Allahabad</div>
+<div class="section-sub">Project Overview</div>
+<p>FALCON 2025 was an aeromodelling competition organized as part of Avishkar, the annual technical festival of Motilal Nehru National Institute of Technology (MNNIT), Prayagraj. The challenge required participating teams to assemble an RC aircraft from 
+a kit provided by the organizers and successfully fly it during the competition. 
+Teams were also expected to practlce flying the aircraft using simulation software before attempting the real flight.</p>
+<p>Coming from a Biotechnology background, I had never worked on an aircraft before. 
+Every concept—from control surfaces and propulsion systems to servos and electronic 
+speed controllers—was completely new to me. Yet, when a friend from the Mechanical 
+Engineering department invited me to join the team, saw an opportunity to learn 
+something entirely outside my field. </p>
+<p>Over the following week, our workshop became more than just a place to build an 
+airplane. It became a classroom Where I learned by observing, experimenting, making 
+mistakes, and solving problems in real time. contributed extensively to the aircraft's 
+physical assembly, electronics integration, component testing, and final adjustments 
+while learning the fundamentals of RC aircraft construction from scratch.</p>
+<p>Like many engineering projects, the journey wasn't straightforward. We faced time 
+constraints, inconsistent team availability, last-minute assembly challenges, technical 
+setbacks.</p>
+<p>The experience left me with something far more valuable than a medal—it taught me 
+how engineering projects are built through collaboration, persistence, continuous 
+learning, and attention to the smallest details. 
+I have documented that journey—from opening the aircraft kit for the very first time to 
+watching our completed aircraft take flight, experiencing failure, and reflecting on the 
+lessons that continue to influence how I approach projects today, </p>
+
+  <div class="quote">"Sometimes the most meaningful projects aren't the ones that end with success — they're the ones that change how you think."</div>
+</section>
+
+<section id="kit" class="reveal">
+  <div class="section-title">Understanding the Kit</div>
+  <div class="section-sub">Every component, before a single cut was made</div>
+  <p>At the beginning of the workshop, each team received a complete RC kit containing all the essential materials required to construct a fixed-wing aircraft. The organizers introduced every component and explained its function before assembly began — helping beginners like us understand how the aircraft's mechanical structure and electronics would eventually work together.</p>
+  <div class="kit-grid">
+    <div class="kit-card"><h4>✈ Airframe Materials</h4><ul><li>Foam-board sheets for fuselage, wings & tail</li><li>Pre-designed templates for cutting & folding</li><li>Adhesive material</li></ul></div>
+    <div class="kit-card"><h4>⚡ Propulsion System</h4><ul><li>Motor</li><li>Propeller</li><li>Electronic Speed Controller (ESC)</li></ul><p style="margin:6px 0 0;font-size:.85rem">Generated the thrust required for flight.</p></div>
+    <div class="kit-card"><h4>🎮 Flight Control System</h4><ul><li>Servo Motors</li><li>Receiver</li><li>Push Rods</li></ul><p style="margin:6px 0 0;font-size:.85rem">Converted pilot commands into precise control-surface movement.</p></div>
+    <div class="kit-card"><h4>🔋 Power System</h4><ul><li>Battery</li><li>Connectors</li><li>Power distribution wiring</li></ul><p style="margin:6px 0 0;font-size:.85rem">The aircraft's primary energy source.</p></div>
+    <div class="kit-card"><h4>🛞 Landing Gear</h4><ul><li>Wheels</li><li>Axles</li></ul><p style="margin:6px 0 0;font-size:.85rem">Enabled smooth takeoff, landing & ground movement.</p></div>
+  </div>
+  <p style="margin-top:18px">Before building anything, we carefully identified each component, matched it with the assembly guide, and familiarized ourselves with the construction sequence demonstrated by the instructors.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="build" class="reveal">
+  <div class="section-title">Assembly Process</div>
+  <p>With the kit understood and every component identified, construction finally began. Rather than improvising the design, we closely followed the prescribed construction sequence to ensure structural accuracy from the tutorial provided.</p>
+  <p>The primary building material was a lightweight foam-board composed of two paper layers surrounding a foam core. Different sections of the aircraft required different cutting techniques depending on the type of fold being created — complete cuts, partial cuts that removed only the paper layer, foam-only cuts, and precise 45° bevel cuts for components such as the tail surfaces.</p>
+  <p>Most joints were assembled using hot glue, which provided quick setting times while maintaining adequate structural strength. Because the adhesive hardened rapidly, every component had to be positioned correctly before the glue cooled.</p>
+  <p>Although there was confusion at the start, we slowly saw the entire structure of the craft come together. Once the basic airframe was complete, electronic components such as the motor, servos, receiver, and control rods were installed and tested. I gradually became involved in nearly every stage of physical assembly — from joining structural components and installing electronics to adjusting control surfaces and testing the aircraft's mechanical systems before its first flight.</p>
+  <div class="gallery">
+    <div class="photo wide" data-cap="Foam-board fuselage taking shape"><span class="icon">🛩️</span></div>
+    <div class="photo" data-cap="Electronics & wiring"><span class="icon">🔌</span></div>
+    <div class="photo" data-cap="Camo-painted final craft"><span class="icon">🎨</span></div>
+  </div>
+
+
+<div class="divider"></div>
+
+<section id="eval" class="reveal">
+  <div class="section-title">Mid Evaluation</div>
+  <p>As part of the competition, each team had to present their progress during a <b>mid-evaluation viva</b>. Since some of my teammates were unavailable, I took the responsibility of representing our team. Having joined the project with no prior knowledge of RC aircraft, I spent time understanding the aircraft's components, electronics, and basic flight principles so I could confidently answer the evaluators' questions. Although it was a nerve-wracking experience, the viva challenged me to think on my feet and strengthened my confidence in learning and explaining unfamiliar technical concepts under pressure.</p>
+</section>
+
+<div class="divider"></div>
+  
+
+<section id="finishing" class="reveal">
+  <div class="section-title">Adding the Finishing Touches</div>
+  <div class="insert-note">(Insert Images: Painted aircraft)</div>
+  <div class="gallery">
+    <div class="photo wide" data-cap="Camouflage paint job in progress"><span class="icon">🎨</span></div>
+    <div class="photo" data-cap="Finished, painted aircraft"><span class="icon">🛩️</span></div>
+  </div>
+  <p>With the structural assembly complete, we focused on the aircraft's appearance. The aircraft was painted using a camouflage-inspired design, giving the plain foam-board aircraft a more realistic and polished look. Beyond aesthetics, this stage reflected the effort and attention to detail that went into the project, making the aircraft feel truly complete before its first flight.</p>
+
+  <div class="divider"></div>
+</section>
+
+ <div class="section-title" style="font-size:1.5rem">The Reality Behind the Build</div>
+  <p>One challenge that no one talks about in engineering competitions is everything that happens outside the workshop. Our aircraft wasn't something we could simply fold up and carry in a backpack. Transporting the completed airframe between the hostel and the workshop became a task in itself — every trip required careful handling to avoid damaging delicate components like the wings, landing gear, or tail surfaces. More than once, carrying the aircraft across campus felt harder than building it.</p>
+  <p>Adding to the pressure, our team's participation was finalized quite late, leaving us with very little time to complete the aircraft. Almost every task happened against the clock, making careful planning even more important.</p>
+  <p>Looking back, those long hours in the workshop taught me far more than just aircraft construction. They taught me patience, adaptability, and the importance of staying calm even when deadlines seem impossible.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="compday" class="reveal">
+  <div class="section-title">Chapter 3 — Competition Day</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <h4>The Final Preparations</h4>
+      <p>After nearly a week of continuous work, our aircraft was finally ready for its first official flight. The only task left from the previous day was attaching the landing gear, after which we carried out the final checks and prepared for competition. The atmosphere on the competition ground was filled with excitement — teams from different departments gathered with their aircraft, making last-minute adjustments and waiting for their turn. Seeing so many completed RC planes lined up on the field made all the hours spent in the workshop feel worthwhile.</p>
+    </div>
+    <div class="tl-item">
+      <h4>The Flight</h4>
+      <p>When our turn arrived, the aircraft took off smoothly, and for a brief moment it felt like all our hard work had paid off. Watching something we had built from foam sheets, electronics, and countless hours of effort leave the ground was an unforgettable experience.</p>
+      <p>Unfortunately, the flight lasted only a few moments. Shortly after takeoff, the propeller detached from the motor, causing the aircraft to lose thrust and crash before completing the round.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Looking Back</h4>
+      <p>During the workshop, one of the seniors had repeatedly emphasized that the propeller must be tightened securely using a special tool before every flight. I remembered this instruction and asked multiple times whether it had been tightened correctly after the propeller was reattached during final assembly. I was assured that everything had been taken care of.</p>
+      <p>Looking back, that small detail proved to be critical. The aircraft was eliminated in the very first round, and the crash caused significant damage. Watching the aircraft break apart was heartbreaking — beyond the damaged plane, it represented a week of learning, teamwork, and effort that had come to an end within seconds.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Picking Up the Pieces</h4>
+      <p>The crash left me completely devastated. Watching the aircraft we had spent an entire week building get destroyed within seconds was difficult to process. Feeling disheartened, I quietly walked away from the competition venue, convinced that our journey had ended there.</p>
+      <p>The following day, however, my teammates repaired the damaged aircraft and managed to get it back into flying condition. Seeing the aircraft soar again was a bittersweet moment — it reminded me that engineering is rarely about getting everything right on the first attempt. More often, it's about learning from failure, rebuilding, and trying again.</p>
+    </div>
+    <div class="tl-item">
+      <h4>Flying Alongside an Eagle</h4>
+      <p>As I watched the aircraft soar through the sky, with an eagle briefly flying beside it, I couldn't help but smile. It felt like the perfect ending to a journey that had begun with nothing more than sheets of foam, a box of electronics, and a group of students willing to learn.</p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="photo" data-cap="Team & aircraft, pre-flight checks"><span class="icon">👥</span></div>
+    <div class="photo" data-cap="First flight"><span class="icon">🛫</span></div>
+    <div class="photo" data-cap="Post-crash, repair mode"><span class="icon">🛠️</span></div>
+    <div class="photo" data-cap="Back on the field"><span class="icon">🦅</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="reflect" class="reveal">
+  <div class="section-title">Final Reflection</div>
+  <p>Coming into FALCON 2025 as a Biotechnology student, I knew almost nothing about RC aircraft. By the end of the competition, I had assembled an aircraft, worked with motors and electronics, adjusted control surfaces, presented a technical viva, and experienced both the excitement of flight and the disappointment of failure. Somewhere along the way, an unfamiliar project became one of the most memorable engineering experiences I've ever had.</p>
+  <p>What impressed me most wasn't just the aircraft itself — it was the people behind it. Watching senior participants fly machines with such confidence and precision was nothing short of inspiring. Every smooth takeoff, controlled turn, and perfect landing reflected countless hours of practice, patience, and dedication. They made unraveling incredibly complex look effortless, and that is what true mastery often looks like.</p>
+  <p>FALCON also taught me a lesson I'll carry into every future project: engineering is built on precision, communication, and trust. A single overlooked detail can change an outcome, but setbacks don't define a project — the willingness to learn, rebuild, and improve does.</p>
+  <p>I may not have left with a medal, but I left with something more valuable: the confidence to step into unfamiliar territory, contribute meaningfully, and keep learning beyond the boundaries of my own discipline.</p>
+  <div class="stat-row">
+    <div class="stat"><b>7</b><span>Team Members</span></div>
+    <div class="stat"><b>~1 wk</b><span>Build Duration</span></div>
+    <div class="stat"><b>1st</b><span>RC Aircraft Built</span></div>
+    <div class="stat"><b>2</b><span>Flights (crash & repair)</span></div>
+  </div>
+  <div class="quote">Sometimes, the best projects aren't the ones that end in victory.<br>They're the ones that leave you looking at the sky a little differently.</div>
+</section>
+
+<footer>
+  Aero Club × MNNIT Allahabad — Avishkar Technical Festival
+  <div class="sign">FALCON 2025 · A journey from foam sheets to flight</div>
+</footer>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+els.forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
