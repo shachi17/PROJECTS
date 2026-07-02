@@ -120,6 +120,16 @@ p{line-height:1.75;color:#e6e0cc;margin-bottom:14px;font-size:1rem}
 .kit-card h4{color:var(--amber);margin-bottom:8px;font-size:1rem}
 .kit-card ul{margin-left:18px;color:#e6e0cc;font-size:.92rem;line-height:1.7}
 
+/* NEW: Image styling inside the kit cards */
+.kit-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
 .timeline{position:relative;margin-top:20px;padding-left:26px;border-left:2px dashed var(--olive2)}
 .tl-item{position:relative;margin-bottom:34px}
 .tl-item::before{content:'';position:absolute;left:-33px;top:4px;width:14px;height:14px;border-radius:50%;
@@ -165,22 +175,20 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
 .hero-logos img {
   width: 70px;
   height: 70px;
-  border-radius: 50%; /* Makes them perfectly round */
+  border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(243, 236, 216, 0.15); /* Matches your var(--line) */
+  border: 2px solid rgba(243, 236, 216, 0.15);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
 }
 .hero-logos img:hover {
-  transform: scale(1.1); /* Slight pop when hovered */
+  transform: scale(1.1); 
 }
 
-/* Mobile adjustment for top logos */
 @media(max-width: 768px) {
   .hero-logos { top: 20px; padding: 0 20px; }
   .hero-logos img { width: 50px; height: 50px; }
 }
-
 
 .footer-logos {
   display: flex;
@@ -193,7 +201,7 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  opacity: 0.7; /* Dims them slightly to match footer text */
+  opacity: 0.7; 
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .footer-logos img:hover {
@@ -206,11 +214,10 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 18px;
-  cursor: pointer; /* Changes the mouse to a pointing hand */
+  cursor: pointer; 
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Adds a nice amber glow and lifts the card when the user hovers over it */
 .kit-card:hover {
   transform: translateY(-5px);
   border-color: rgba(232, 163, 61, 0.45);
@@ -220,13 +227,11 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
 .kit-card h4 { color: var(--amber); margin-bottom: 8px; font-size: 1rem; }
 .kit-card ul { margin-left: 18px; color: #e6e0cc; font-size: .92rem; line-height: 1.7; }
 
-
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <header class="hero">
   <div class="hero-logos">
     <img src="Gallery/aeroclub_logo.png" alt="Aero Club MNNIT">
     <img src="Gallery/Avishkar_logo.png" alt="Avishkar 2025">
@@ -282,47 +287,52 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
   <div class="section-title">Understanding the Kit</div>
   <div class="section-sub">Every component, before a single cut was made</div>
   <p>At the beginning of the workshop, each team received a complete RC kit containing all the essential materials required to construct a fixed-wing aircraft. The organizers introduced every component and explained its function before assembly began — helping beginners like us understand how the aircraft's mechanical structure and electronics would eventually work together.</p>
+  
   <div class="kit-grid">
-  <div class="kit-card" data-cap="Airframe Materials: Foam board and templates" data-img="Gallery/foam.png">
-    <h4>✈ Airframe Materials</h4>
-    <ul>
-      <li>Foam-board sheets for fuselage, wings &amp; tail</li>
-      <li>Pre-designed templates for cutting &amp; folding</li>
-      <li>Adhesive material</li>
-    </ul>
+    <div class="kit-card" data-cap="Airframe Materials: Foam board and templates" data-img="Gallery/foam.png">
+      <img src="Gallery/foam.png" alt="Airframe Materials">
+      <h4>✈ Airframe Materials</h4>
+      <ul>
+        <li>Foam-board sheets for fuselage, wings &amp; tail</li>
+        <li>Pre-designed templates for cutting &amp; folding</li>
+        <li>Adhesive material</li>
+      </ul>
+    </div>
+    
+    <div class="kit-card" data-cap="Propulsion System: Motor, Propeller, and ESC" data-img="Gallery/motor_prop.png">
+      <img src="Gallery/motor_prop.png" alt="Propulsion System">
+      <h4>⚡ Propulsion System</h4>
+      <ul>
+        <li>Motor</li>
+        <li>Propeller</li>
+        <li>Electronic Speed Controller (ESC)</li>
+      </ul>
+      <p style="margin:6px 0 0;font-size:.85rem">Generated the thrust required for flight.</p>
+    </div>
+    
+    <div class="kit-card" data-cap="Flight Control: Servos and Receiver" data-img="Gallery/receiver.png">
+      <img src="Gallery/receiver.png" alt="Flight Control System">
+      <h4>🎮 Flight Control System</h4>
+      <ul>
+        <li>Servo Motors</li>
+        <li>Receiver</li>
+        <li>Push Rods</li>
+      </ul>
+      <p style="margin:6px 0 0;font-size:.85rem">Converted pilot commands into precise control-surface movement.</p>
+    </div>
+    
+    <div class="kit-card" data-cap="Power System: LiPo Battery and Wiring" data-img="Gallery/power.png">
+      <img src="Gallery/power.png" alt="Power System">
+      <h4>🔋 Power System</h4>
+      <ul>
+        <li>Battery</li>
+        <li>Connectors</li>
+        <li>Power distribution wiring</li>
+      </ul>
+      <p style="margin:6px 0 0;font-size:.85rem">The aircraft's primary energy source.</p>
+    </div>
   </div>
   
-  <div class="kit-card" data-cap="Propulsion System: Motor, Propeller, and ESC" data-img="Gallery/motor_prop.png">
-    <h4>⚡ Propulsion System</h4>
-    <ul>
-      <li>Motor</li>
-      <li>Propeller</li>
-      <li>Electronic Speed Controller (ESC)</li>
-    </ul>
-    <p style="margin:6px 0 0;font-size:.85rem">Generated the thrust required for flight.</p>
-  </div>
-  
-  <div class="kit-card" data-cap="Flight Control: Servos and Receiver" data-img="Gallery/receiver.png">
-    <h4>🎮 Flight Control System</h4>
-    <ul>
-      <li>Servo Motors</li>
-      <li>Receiver</li>
-      <li>Push Rods</li>
-    </ul>
-    <p style="margin:6px 0 0;font-size:.85rem">Converted pilot commands into precise control-surface movement.</p>
-  </div>
-  
-  <div class="kit-card" data-cap="Power System: LiPo Battery and Wiring" data-img="Gallery/power.png">
-    <h4>🔋 Power System</h4>
-    <ul>
-      <li>Battery</li>
-      <li>Connectors</li>
-      <li>Power distribution wiring</li>
-    </ul>
-    <p style="margin:6px 0 0;font-size:.85rem">The aircraft's primary energy source.</p>
-  </div>
-
-</div>
   <p style="margin-top:18px">Before building anything, we carefully identified each component, matched it with the assembly guide, and familiarized ourselves with the construction sequence demonstrated by the instructors.</p>
 </section>
 
@@ -335,11 +345,21 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
   <p>We used hot glue for most joints, which demanded quick, precise positioning before the adhesive hardened. Despite some initial confusion, the structure steadily took shape. Once the airframe was complete, we installed and tested the motor, servos, receiver, and control rods.</p>
 
   <p>I was involved in nearly every stage of the process, from joining structural components to fine-tuning the control surfaces. These hands-on tasks, from initial assembly to verifying the mechanical systems, gave me a comprehensive understanding of the aircraft's internal and external construction.</p>
+
   <div class="tile-hint">Click any tile to open the related phase photo.</div>
   <div class="gallery">
-    <div class="photo wide" data-cap="Foam-board fuselage taking shape" data-img="Gallery/foam.png"><img src="Gallery/foam.png" alt="Foam-board fuselage taking shape"><button type="button" aria-label="Open Foam-board fuselage taking shape"></button></div>
-    <div class="photo" data-cap="Electronics & wiring" data-img="Gallery/power and servo.png"><img src="Gallery/power and servo.png" alt="Electronics and wiring"><button type="button" aria-label="Open Electronics and wiring"></button></div>
-    <div class="photo" data-cap="Camo-painted final craft" data-img="Gallery/Finished plane.jpeg"><img src="Gallery/Finished plane.jpeg" alt="Camo-painted final craft"><button type="button" aria-label="Open Camo-painted final craft"></button></div>
+    <div class="photo" data-cap="Fuselage and tail construction" data-img="Gallery/construction_1.png">
+      <img src="Gallery/construction_1.png" alt="Fuselage and tail construction">
+      <button type="button" aria-label="Open Fuselage and tail construction"></button>
+    </div>
+    <div class="photo" data-cap="Airframe components ready for assembly" data-img="Gallery/construction_2.png">
+      <img src="Gallery/construction_2.png" alt="Airframe components ready for assembly">
+      <button type="button" aria-label="Open Airframe components ready for assembly"></button>
+    </div>
+    <div class="photo wide" data-cap="Camouflage painted wing section" data-img="Gallery/wing.png">
+      <img src="Gallery/wing.png" alt="Camouflage painted wing section">
+      <button type="button" aria-label="Open Camouflage painted wing section"></button>
+    </div>
   </div>
 </section>
 
@@ -350,17 +370,20 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
   <p>During the competition, each team underwent a mid-evaluation viva to track progress. Despite joining the project with no prior experience, I dedicated time to mastering the aircraft’s components, electronics, and flight principles to address the evaluators' questions.</p>
 
   <p>The viva was a nerve-wracking experience, but it forced me to think on my feet and effectively articulate complex technical concepts. Successfully representing the team under pressure not only validated my hard work but also significantly boosted my confidence in my ability to learn and explain unfamiliar subject matter.</p>
+  <div class="tile-hint">Click the tile to view the evaluation photo.</div>
+  <div class="gallery">
+    <div class="photo wide" data-cap="Aircraft waiting for mid evaluation" data-img="Gallery/mid.png">
+      <img src="Gallery/mid.png" alt="Aircraft waiting for mid evaluation">
+      <button type="button" aria-label="Open Aircraft waiting for mid evaluation"></button>
+    </div>
+  </div>
+</section>
 </section>
 
 <div class="divider"></div>
 
 <section id="finishing" class="reveal">
   <div class="section-title">Adding the Finishing Touches</div>
-  <div class="tile-hint">Click any tile to view the full image.</div>
-  <div class="gallery">
-    <div class="photo wide" data-cap="Camouflage paint job in progress" data-img="Gallery/coming together.jpeg"><img src="Gallery/coming together.jpeg" alt="Camouflage paint job in progress"><button type="button" aria-label="Open Camouflage paint job in progress"></button></div>
-    <div class="photo" data-cap="Finished, painted aircraft" data-img="Gallery/Finished plane.jpeg"><img src="Gallery/Finished plane.jpeg" alt="Finished, painted aircraft"><button type="button" aria-label="Open Finished, painted aircraft"></button></div>
-  </div>
   <p>With the structural assembly complete, we focused on the aircraft's appearance. The aircraft was painted using a camouflage-inspired design, giving the plain foam-board aircraft a more realistic and polished look. Beyond aesthetics, this stage reflected the effort and attention to detail that went into the project, making the aircraft feel truly complete before its first flight.</p>
 </section>
 
@@ -374,10 +397,28 @@ footer .sign{color:var(--amber);font-style:italic;margin-top:10px;font-size:1rem
       <h4>The Final Preparations</h4>
       <p>After a week of intense work, we finished our aircraft by installing the landing gear and performing final system checks. Arriving at the competition ground, the energy was electric; seeing teams from across the college making final adjustments to their planes made every hour spent in the workshop feel worth it.</p>
     </div>
+    <div class="gallery" style="margin-top: 15px; margin-bottom: 0;">
+        <div class="photo" data-cap="Completed aircraft ready for flight" data-img="Gallery/Finished_plane.jpeg">
+          <img src="Gallery/Finished_plane.jpeg" alt="Completed aircraft ready for flight">
+          <button type="button" aria-label="Open Completed aircraft ready for flight"></button>
+        </div>
+        <div class="photo" data-cap="The Altair Crew on competition day" data-img="Gallery/group.jpeg">
+          <img src="Gallery/group.jpeg" alt="The Altair Crew on competition day">
+          <button type="button" aria-label="Open The Altair Crew on competition day"></button>
+        </div>
+      </div>
     <div class="tl-item">
       <h4>The Flight</h4>
       <p>When our turn finally came, the takeoff was smooth, providing a brief, rewarding moment of success. Watching our creation—built from scratch over countless hours—actually take flight was an unforgettable experience.</p>
       <p>Unfortunately, the flight was short-lived. Shortly after takeoff, the propeller detached from the motor, causing a loss of thrust that led to a crash before we could complete the round.</p>
+    <div style="margin-top: 18px; margin-bottom: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #000;">
+        <video width="100%" controls preload="metadata" style="display: block; max-height: 400px; object-fit: contain;">
+          <!-- Replace "Gallery/flight_video.mp4" with your actual video file name -->
+          <source src="Gallery/First_flight.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    
     </div>
     <div class="tl-item">
       <h4>Looking Back</h4>
