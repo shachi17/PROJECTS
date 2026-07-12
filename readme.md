@@ -27,7 +27,7 @@ Think of it as a developer blog mixed with project documentation.
 
 ## Currently Documenting
 
-- ✅ FALCON 2025 - Avishkar
+- FALCON 2025 - Avishkar
 - More projects coming soon...
 
 ---
