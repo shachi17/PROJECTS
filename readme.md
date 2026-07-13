@@ -15,12 +15,11 @@ Each project has its own dedicated page containing:
 - Architecture & design
 - Tech stack used
 - Features
-- Screenshots & demos 
+- Images/Videos/other media
 - Challenges faced
 - Things I learned
 - Future improvements
 
-Think of it as a developer blog mixed with project documentation.
 
 ---
 
